@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Geometric Visualization — Plus</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>Geometric Visualization — Plus</h1>
+    <div class="actions">
+      <button id="savePngBtn" class="btn">Save PNG</button>
+      <button id="recordBtn" class="btn btn-primary">Record 7s WEBM</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="controls">
+      <h2>Controls</h2>
+      <label class="row">
+        <span>Pattern</span>
+        <select id="pattern">
+          <option value="lissajous">Lissajous</option>
+          <option value="rose">Rose (Rhodonea)</option>
+          <option value="spiro">Spirograph</option>
+          <option value="orbit">Orbitals</option>
+        </select>
+      </label>
+
+      <label class="row">
+        <span>Line Width</span>
+        <input id="lineWidth" type="range" min="0.5" max="8" step="0.5" value="2" />
+      </label>
+
+      <label class="row">
+        <span>Speed</span>
+        <input id="speed" type="range" min="0.1" max="3" step="0.1" value="1.0" />
+      </label>
+
+      <label class="row">
+        <span>Symmetry / k</span>
+        <input id="k" type="range" min="1" max="15" step="1" value="7" />
+      </label>
+
+      <label class="row">
+        <span>Radius / a</span>
+        <input id="a" type="range" min="10" max="300" step="1" value="180" />
+      </label>
+
+      <label class="row">
+        <span>Secondary / b</span>
+        <input id="b" type="range" min="1" max="300" step="1" value="75" />
+      </label>
+
+      <label class="row">
+        <span>Color Mode</span>
+        <select id="colorMode">
+          <option value="hsla">HSLA Sweep</option>
+          <option value="mono">Monochrome</option>
+          <option value="duo">Duotone</option>
+          <option value="rainbow">Rainbow Bands</option>
+        </select>
+      </label>
+
+      <label class="row">
+        <span>Fade Trails</span>
+        <input id="fade" type="checkbox" checked />
+      </label>
+
+      <label class="row">
+        <span>Background</span>
+        <input id="bg" type="color" value="#0b0b10" />
+      </label>
+
+      <details class="more">
+        <summary>Advanced</summary>
+        <label class="row">
+          <span>Resolution</span>
+          <select id="resolution">
+            <option value="1080">1080p</option>
+            <option value="720" selected>720p</option>
+            <option value="480">480p</option>
+          </select>
+        </label>
+        <label class="row">
+          <span>Frame Rate</span>
+          <select id="fps">
+            <option>60</option>
+            <option selected>30</option>
+            <option>24</option>
+          </select>
+        </label>
+        <label class="row">
+          <span>Duration (s)</span>
+          <input id="duration" type="number" min="1" max="30" step="1" value="7" />
+        </label>
+        <label class="row">
+          <span>Seed</span>
+          <input id="seed" type="number" min="0" max="999999" step="1" value="0" />
+        </label>
+      </details>
+
+      <button id="randomizeBtn" class="btn secondary">🎲 Randomize</button>
+      <button id="resetBtn" class="btn ghost">Reset</button>
+    </aside>
+
+    <section class="stage">
+      <canvas id="canvas"></canvas>
+      <div id="status" class="status"></div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>
+      Made with &lt;canvas&gt; + MediaRecorder. Keyboard: [R]ecord, [Space] randomize, [S]ave PNG.
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
